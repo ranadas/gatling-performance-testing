@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: "org.springframework.boot"
+
+group = 'com.rdas'
+version = '0.0.1-SNAPSHOT'
+
+description = """gatling-perf-testing"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.3.RELEASE'
+    compile group: 'org.projectlombok', name: 'lombok', version:'1.16.22'
+    runtime group: 'org.springframework.boot', name: 'spring-boot-devtools', version:'2.0.3.RELEASE'
+    runtime group: 'com.h2database', name: 'h2', version:'1.4.197'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.0.3.RELEASE'
+    testCompile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '2.3.1'
+}
